@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7/12 第2回リアルMTG ルール</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background: #f3f0ff; color:#2b2740; line-height:1.75;
+    padding: 0 0 60px;
+  }
+  .wrap { max-width: 680px; margin:0 auto; padding: 0 16px; }
+  header {
+    background: linear-gradient(135deg, #6d5bd0 0%, #8b6fe0 100%);
+    color:#fff; text-align:center; padding: 40px 20px 34px; border-radius: 0 0 24px 24px;
+    box-shadow: 0 6px 20px rgba(109,91,208,0.25);
+  }
+  header .emoji { font-size: 44px; }
+  header h1 { font-size: 25px; margin: 8px 0 4px; letter-spacing:.5px; }
+  header .date { font-size: 15px; opacity:.95; margin-top:6px; }
+  .meta {
+    background:#fff; border-radius:16px; margin: -18px auto 24px; padding: 18px 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.06); position:relative;
+  }
+  .meta div { margin: 4px 0; font-size:15px; }
+  .meta b { color:#6d5bd0; }
+  h2.section {
+    font-size: 20px; margin: 30px 0 14px; padding: 12px 16px;
+    background:#fff; border-left:6px solid #6d5bd0; border-radius:10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  }
+  .flow { width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+  .flow th { background:#6d5bd0; color:#fff; padding:10px; font-size:14px; }
+  .flow td { padding:10px 12px; border-bottom:1px solid #eee; font-size:14px; vertical-align:top; }
+  .flow td:first-child { white-space:nowrap; font-weight:bold; color:#6d5bd0; }
+  .flow tr:last-child td { border-bottom:none; }
+  .card {
+    background:#fff; border-radius:16px; padding: 20px; margin: 16px 0;
+    box-shadow: 0 3px 12px rgba(0,0,0,.05);
+  }
+  .card h3 { font-size:18px; color:#5a49bf; margin-bottom:6px; }
+  .card .badge { display:inline-block; background:#eee7ff; color:#6d5bd0; font-size:12px; font-weight:bold; padding:3px 10px; border-radius:20px; margin-bottom:10px; }
+  .quote { background:#f6f3ff; border-left:4px solid #8b6fe0; padding:12px 14px; border-radius:8px; margin:12px 0; font-size:14px; color:#4a437a; }
+  ul.list { list-style:none; margin:10px 0; }
+  ul.list li { padding:6px 0 6px 26px; position:relative; font-size:15px; }
+  ul.list li::before { content:"●"; color:#8b6fe0; position:absolute; left:6px; font-size:11px; top:9px; }
+  .rule { background:#fbfaff; border:1px solid #e6e0fb; border-radius:12px; padding:14px 16px; margin:12px 0; }
+  .rule .rt { font-weight:bold; color:#6d5bd0; font-size:15px; margin-bottom:4px; }
+  .rule.highlight { background:#fff4e6; border-color:#f6d29b; }
+  .rule.highlight .rt { color:#c8811a; }
+  .cost { display:inline-block; background:#c8811a; color:#fff; font-weight:bold; padding:2px 10px; border-radius:6px; font-size:14px; }
+  .beer h2.section { border-left-color:#e6a817; }
+  .todo { background: linear-gradient(135deg,#6d5bd0,#8b6fe0); color:#fff; border-radius:16px; padding:22px; margin-top:24px; }
+  .todo h3 { font-size:18px; margin-bottom:12px; }
+  .todo ol { margin-left:20px; }
+  .todo li { margin:8px 0; font-size:15px; }
+  .closing { text-align:center; font-size:17px; font-weight:bold; color:#6d5bd0; margin:28px 0 10px; }
+  .foot { text-align:center; font-size:12px; color:#9a94b5; margin-top:20px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="emoji">🎲🍺</div>
+  <h1>第2回リアルMTG ルール</h1>
+  <div class="date">2026年7月12日（土）｜HEROチーム</div>
+</header>
+
+<div class="wrap">
+
+  <div class="meta">
+    <div>🕙 <b>集合</b>：10:00〜10:30（10:10目安）</div>
+    <div>📍 <b>会場</b>：新宿「ボドゲ」（10:30〜12:45）</div>
+    <div>🍺 <b>13:00〜</b>：屋上ビアガーデンへ移動</div>
+    <div>🎒 <b>持ち物</b>：ボールペン／アクノレッジの感想</div>
+  </div>
+
+  <h2 class="section">🕙 当日の流れ</h2>
+  <table class="flow">
+    <tr><th>時間</th><th>内容</th><th>場所</th></tr>
+    <tr><td>10:00–10:30</td><td>集合・ありがとうカードのくじ引き＆記入スタート</td><td>ボドゲ</td></tr>
+    <tr><td>10:30–12:45</td><td><b>実践①</b> ボードゲーム導入ミーティング（うち60分を実践に）</td><td>ボドゲ</td></tr>
+    <tr><td>〜13:00</td><td>屋上ビアガーデンへ移動・乾杯</td><td>屋上</td></tr>
+    <tr><td>13:00〜</td><td><b>実践②</b> アクノレッジ 読書感想の発表＆意見交換（約30分）</td><td>屋上</td></tr>
+    <tr><td>〜</td><td><b>実践③</b> だいちさん用意のレク体験（約30分）</td><td>屋上</td></tr>
+  </table>
+
+  <h2 class="section">🎯 実践① ボードゲーム導入ミーティング（60分）</h2>
+  <div class="card">
+    <p>10:30〜12:45のMTGのうち、<b>60分</b>を「実践」の一つとして使います。単にゲームを楽しむのではなく、新しいものを<b>"導入・落とし込む"練習</b>がテーマです。</p>
+    <div class="quote">私たちはこれまで、LINE公式・YouTube・Instagram・TikTokなど、新しいシステムを医院に導入してきました。今回は「新しいゲームを導入する」ことを、その縮小版として体験します。</div>
+
+    <div class="badge">📋 進め方（会議 → プレイ）</div>
+    <p>まず全員で<b>会議</b>をしてから動きます。決めることは――</p>
+    <ul class="list">
+      <li>どのゲームをやるか（だいちさんが新作・旧作を持参）</li>
+      <li>何分で、何をやるか</li>
+      <li>全部やるのか、1個だけじっくりやるのか</li>
+      <li>60分を"有意義な時間"にするにはどうすればいいか</li>
+    </ul>
+    <p>会議で方針を決め、<b>残り時間でプレイ</b>。会議とプレイを合わせて、60分を充実した時間にしてください。</p>
+
+    <div class="rule">
+      <div class="rt">ルール1｜時間配分は自分たちで最適化する</div>
+      60分の中で、最適な時間の使い方・最適な取り組みを自分たちで考えて行う。
+    </div>
+    <div class="rule highlight">
+      <div class="rt">ルール2｜コンサルタント（だいちさん）を使える</div>
+      コンサルタント役のだいちさんを使うと、<span class="cost">ゲーム時間 60分 → 50分</span>（10分のコストが発生）。<br>
+      だいちさんはゲーム進行中の<b>点数計算など</b>を担当。<br>
+      「だいちさんに何を任せ、自分たちで何をやるか」も含めて話し合うのがポイント。
+    </div>
+  </div>
+
+  <div class="beer">
+  <h2 class="section">🍺 実践② アクノレッジ 読書感想の発表＆意見交換（約30分／屋上）</h2>
+  <div class="card">
+    <p>課題図書『アクノレッジ 承認が人を動かす』の感想を、一人ずつ発表します。</p>
+    <ul class="list">
+      <li><b>LINEのノートに書いてきたもの</b>を、そのまま読み上げる形で</li>
+      <li>書いて送るのが大変なら、その場で<b>口頭でもOK</b></li>
+      <li><b>読んでいない人はパス</b>で構いません</li>
+      <li>発表された感想に、<b>みんなで意見を出し合う時間</b>（約30分）</li>
+    </ul>
+  </div>
+
+  <h2 class="section">🎈 実践③ だいちさん用意のレク体験（約30分／屋上）</h2>
+  <div class="card">
+    <p>医院のレクリエーションなどで<b>そのまま取り入れられそうなレク</b>を、だいちさんが用意してくれています。実際にみんなで試して、「これは自院で使えそう」という視点でも体験してみましょう。</p>
+  </div>
+  </div>
+
+  <h2 class="section">🎁 ありがとうカード（当日のお楽しみ）</h2>
+  <div class="card">
+    <ul class="list">
+      <li><b>朝、ありがとうカードを配ります。</b>カードには名前が書いてあります</li>
+      <li>「書いてある名前の方の、<b>当日良かった所をメモ</b>してください」</li>
+      <li><b>誰が誰のカードを書いているかは秘密</b>です</li>
+      <li>ビアガーデンで<b>ひろくんがカードを回収して読み上げ</b>ます</li>
+      <li>読み上げを聞いて、<b>誰が書いてくれたかを当てるゲーム</b>！</li>
+    </ul>
+  </div>
+
+  <div class="todo">
+    <h3>✅ 参加メンバーへのお願い</h3>
+    <ol>
+      <li><b>10:00〜10:30の間</b>に集合（10:10目安。早すぎると会場前で待つことに）</li>
+      <li><b>ボールペン</b>を持参（ありがとうカード用）</li>
+      <li><b>アクノレッジの感想</b>を、できればLINEノートに書いてくる（口頭でも可・読んできてくれると嬉しい）</li>
+    </ol>
+  </div>
+
+  <div class="closing">みんなで有意義で楽しい1日にしましょう！🎉</div>
+  <div class="foot">HEROチーム 第2回リアルMTG ／ 2026.7.12</div>
+
+</div>
+</body>
+</html>
